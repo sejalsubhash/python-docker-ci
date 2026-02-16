@@ -1,11 +1,13 @@
 version: 0.2
-
+ 
 phases:
   install:
     runtime-versions:
-      python: 3.10
+      docker: 20
   build:
     commands:
-      - pip install -r requirements.txt
-      - python app.py & sleep 5
-      - echo "Build successful"
+      - echo Build started
+      - docker build -t my-docker-app .
+artifacts:
+  files:
+    - '**/*'
